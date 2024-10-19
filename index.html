@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Responsive UI - Boilerplate Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Prefetching the Google Font for performance improvement -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Your Name",
+        "jobTitle": "Web Developer",
+        "url": "https://yourwebsite.com",
+        "sameAs": [
+            "https://www.linkedin.com/in/yourprofile",
+            "https://github.com/yourprofile"
+        ]
+    }
+    </script>
+</head>
+<body>
+    <!-- Dark Mode Toggle Slider -->
+    <div class="toggle-container">
+        <input type="checkbox" id="theme-toggle" class="toggle-checkbox">
+        <label for="theme-toggle" class="toggle-label">
+            <span class="sun-icon">🌞</span>
+            <span class="moon-icon">🌙</span>
+        </label>
+    </div>
+
+    <!-- Image in top left corner -->
+    <div class="top-left-circle">
+        <img src="https://via.placeholder.com/100" alt="Profile Image" loading="lazy">
+    </div>
+
+    <div class="page">
+        <h1 class="heading">Boilerplate Portfolio</h1>
+        <div class="container">
+
+            <!-- Left Card -->
+            <div class="card left-card">
+                <div class="card-content">
+                    <h2>About Me</h2>
+                    <p>I'm [Your Name], a web developer specializing in interactive, responsive digital experiences. Let's collaborate on exciting projects!</p>
+                </div>
+                <footer class="card-footer">
+                    <a href="mailto:your.email@example.com" class="button-link">Get in Touch</a>
+                </footer>
+            </div>
+
+            <!-- Center Card with LinkedIn -->
+            <div class="card center-card">
+                <div class="card-content">
+                    <h2>LinkedIn</h2>
+                    <p>Here is a link to my LinkedIn profile.</p>
+                    <a href="https://linkedin.com" target="_blank" aria-label="Go to LinkedIn profile">
+                        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn Logo" class="linkedIn" loading="lazy">
+                    </a>
+                </div>
+                <footer class="card-footer">
+                    <a href="https://linkedin.com" class="button-link" target="_blank" aria-label="Go to LinkedIn profile">Click Me!</a>
+                </footer>
+            </div>
+
+            <!-- Right Card with GitHub -->
+            <div class="card right-card">
+                <div class="card-content">
+                    <h2>GitHub Profile</h2>
+                    <p>Here is a link to my GitHub profile.</p>
+                    <a href="https://github.com" target="_blank" aria-label="Go to GitHub profile">
+                        <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Logo" class="github" loading="lazy">
+                    </a>
+                </div>
+                <footer class="card-footer">
+                    <a href="https://github.com" class="button-link" target="_blank" aria-label="Go to GitHub profile">Click Me!</a>
+                </footer>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="page-footer">
+        <p>Let's build something amazing together!</p>
+    </footer>
+
+    <script>
+    // Dark Mode Toggle
+    const toggleSwitch = document.querySelector('#theme-toggle');
+    const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
+
+    if (currentTheme) {
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        if (currentTheme === 'dark') {
+            toggleSwitch.checked = true;
+        }
+    }
+
+    toggleSwitch.addEventListener('change', function() {
+        if (this.checked) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+        } else {
+            document.documentElement.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light');
+        }
+    });
+    </script>
+</body>
+</html>

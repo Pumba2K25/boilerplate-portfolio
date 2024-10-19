@@ -1,0 +1,327 @@
+/* Importing Google Font */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Default color variables */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333;
+    --card-bg-color: #ffffff;
+    --button-bg-color: #00796B;
+    --button-hover-bg-color: #005f56;
+}
+
+/* Dark mode color variables */
+[data-theme="dark"] {
+    --bg-color: #121212;
+    --text-color: #f0f0f0;
+    --card-bg-color: #1e1e1e;
+    --button-bg-color: #005f56;
+    --button-hover-bg-color: #00473d;
+}
+
+/* General page styling */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden; /* Prevents horizontal overflow */
+    padding-bottom: 60px; /* Space for footer */
+    min-height: 100vh;
+    position: relative;
+    scrollbar-width: thin;
+    scrollbar-color: #00796B #f1f1f1;
+}
+
+/* Image top left corner */
+.top-left-circle {
+    position: absolute;
+    top: 40px;
+    left: 20px;
+    z-index: 1000;
+}
+
+/* Styling the image to be circular */
+.top-left-circle img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Main container for heading and cards */
+.page {
+    text-align: center;
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    flex-grow: 1;
+    padding-bottom: 20px;
+}
+
+/* Heading style */
+.heading {
+    font-size: 3rem;
+    margin-bottom: 30px;
+    flex-shrink: 0;
+    word-wrap: break-word;
+}
+
+/* Dark mode toggle slider */
+.toggle-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.toggle-checkbox {
+    display: none;
+}
+
+.toggle-label {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    background-color: #ccc;
+    border-radius: 34px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.toggle-label:before {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 28px;
+    height: 28px;
+    background-color: white;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.toggle-checkbox:checked + .toggle-label {
+    background-color: #00796B;
+}
+
+.toggle-checkbox:checked + .toggle-label:before {
+    transform: translateX(26px);
+}
+
+.sun-icon, .moon-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+}
+
+.sun-icon {
+    left: 8px;
+}
+
+.moon-icon {
+    right: 8px;
+}
+
+/* Container for cards */
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 100px;
+}
+
+/* Card styling */
+.card {
+    width: 30%;
+    background-color: var(--card-bg-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 500px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect on card */
+.card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.4);
+}
+
+/* Content inside the card */
+.card-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-content h2 {
+    font-size: 1.5rem;
+    margin: 0 0 5px;
+    color: var(--text-color);
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.card-content p {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Footer inside the card */
+.card-footer {
+    text-align: center;
+}
+
+/* Footer styling */
+.page-footer {
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    background-color: #00796B;
+    color: white;
+    flex-shrink: 0;
+}
+
+/* Footer text styling */
+.page-footer p {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+/* Button style for footer links */
+.button-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--button-bg-color);
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.button-link:hover {
+    background-color: var(--button-hover-bg-color);
+}
+
+a:focus, .button-link:focus {
+    outline: 2px solid #00796B;
+}
+
+/* Logo sizes */
+.github, .linkedIn {
+    width: 150px;
+    height: 150px;
+    margin-top: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 90%;
+        height: auto;
+        margin-bottom: 20px;
+        padding: 15px;
+    }
+
+    .heading {
+        font-size: 2rem;
+        margin-top: 20px;
+    }
+
+    .top-left-circle {
+        position: static;
+        margin: 20px auto 0 auto;
+        text-align: center;
+    }
+
+    .top-left-circle img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .toggle-container {
+        top: 10px;
+        right: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .heading {
+        font-size: 1.5rem;
+        margin-top: 50px;
+    }
+
+    .top-left-circle img {
+        width: 50px;
+        height: 50px;
+        margin-top: 20px;
+    }
+
+    .toggle-container {
+        top: 5px;
+        right: 5px;
+    }
+
+    .github, .linkedIn {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+/* Scrollbar customization */
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #00796B;
+    border-radius: 10px;
+    border: 3px solid #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #004d40;
+}
+
+/* Animation for heading */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
